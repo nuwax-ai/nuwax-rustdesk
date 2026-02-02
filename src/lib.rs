@@ -77,3 +77,15 @@ pub mod privacy_mode;
 pub mod virtual_display_manager;
 
 mod kcp_stream;
+
+// agent-client feature: 暴露给 nuwax-agent 等嵌入方使用的 API
+#[cfg(feature = "agent-client")]
+pub use hbb_common;
+
+#[cfg(all(feature = "agent-client", not(any(target_os = "android", target_os = "ios"))))]
+pub mod client_api {
+    pub use crate::client::{
+        Client, Data, FileManager, Interface, Key, LoginConfigHandler,
+        handle_hash, handle_login_error, handle_login_from_ui, handle_test_delay,
+    };
+}

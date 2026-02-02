@@ -41,6 +41,8 @@ unix-file-copy-paste = [
     "clipboard/unix-file-copy-paste",
 ]
 screencapturekit = ["cpal/screencapturekit"]
+# 供 nuwax-agent 等仅需 rendezvous/业务通道、hbb_common 与 client API 的嵌入场景
+agent-client = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
