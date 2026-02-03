@@ -88,4 +88,18 @@ pub mod client_api {
         Client, Data, FileManager, Interface, Key, LoginConfigHandler,
         handle_hash, handle_login_error, handle_login_from_ui, handle_test_delay,
     };
+    // 文件传输相关类型导出
+    pub use hbb_common::fs::{
+        TransferJob, JobType, DataSource,
+        get_next_job_id, get_recursive_files, read_dir,
+    };
+    pub use hbb_common::message_proto::{
+        FileEntry, FileType,
+        FileTransferBlock, FileTransferSendRequest, FileTransferReceiveRequest,
+        FileTransferCancel, FileTransferSendConfirmRequest, FileTransferDone,
+        FileTransferDigest, FileTransferError, FileResponse, FileAction,
+        FileDirectory, FileDirCreate, FileRemoveDir, FileRemoveFile,
+        BusinessMessage,
+    };
+    pub use hbb_common::message_proto::message::Union as MessageUnion;
 }
