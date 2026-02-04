@@ -946,6 +946,16 @@ message TerminalResponse {
   }
 }
 
+// Nuwax custom business message for agent control
+message BusinessMessage {
+  string message_id = 1;
+  int32 type = 2;  // BusinessMessageType enum value
+  bytes payload = 3;
+  int64 timestamp = 4;
+  string source_id = 5;
+  string target_id = 6;
+}
+
 message Message {
   oneof union {
     SignedId signed_id = 3;
@@ -978,5 +988,6 @@ message Message {
     ScreenshotResponse screenshot_response= 30;
     TerminalAction terminal_action = 31;
     TerminalResponse terminal_response = 32;
+    BusinessMessage business_message = 33;  // Nuwax custom business message
   }
 }
